@@ -30,12 +30,9 @@ int h2 = -40;
 int ballAtBarrierX;
 float powercolor = 0;
 int scoren = 0;
-// int barierscy=
 int bar1X = 50;
-//int barcx = bar1X + 200 + 100;
 int hearts = 3;
 double  ballY = 100;
-// int random();
 void Timer(int value);
 void drawtrip(int x, int h);
 void  bariers(double x, double h) { // 350 550 750 950 1150 1350 1550 1750 1950
@@ -70,7 +67,6 @@ void  bariers(double x, double h) { // 350 550 750 950 1150 1350 1550 1750 1950
 	glColor3f(0, 1, 0);
 	drawRect(500 + x + bar1X, 400 + h, 50, 600);//r32
 
-
 	// the ball exceeded the window size game over
 	if (ballY >= 580 || ballY <= 20) {
 		hearts = 0;
@@ -81,32 +77,21 @@ void  bariers(double x, double h) { // 350 550 750 950 1150 1350 1550 1750 1950
 		// check birdY with this barrier's Y's
 		if (ballY <= 160 || ballY >= 280) {    //1    testimg -15
 			hearts--;
-			//bar1X--;
 			ballY = 220;
-			//ballY--;
 		}
 	}
 	if (300 + x + bar1X <= 115 && 300 + x + bar1X >= 50) {
 		if (ballY <= 210 || ballY >= 330) {///2
 			hearts--;
-			//bar1X--;
 			ballY = 270;
-			//ballY--;
 		}
 	}
 	if ((500 + x + bar1X <= 115 && 500 + x + bar1X >= 50)) {
 		if (ballY <= 260 || ballY >= 380) {  //3
 			hearts--;
-			//bar1X--;
 			ballY = 320;
-			//ballY--;
 		}
 	}
-	//
-	//
-	////
-	//
-	//
 	//
 }
 void  bariers2(double x, double h) { // 350 550 750 950 1150 1350 1550 1750 1950
@@ -155,43 +140,29 @@ void  bariers2(double x, double h) { // 350 550 750 950 1150 1350 1550 1750 1950
 	if (bar1X == -785 && power == false) {
 		if (ballY <= 110 || ballY >= (230)) {    //1
 			hearts--;
-			//bar1X--;
 			ballY = 180;
-		//	ballY--;
 		}
-		//	//if (ballY <= 145 || ballY >= (265)) {    //1
-		//	//	hearts--;
-		//	//	bar1X--;
-		//	//}
 	}
 	if (bar1X == -985 && power == false) {
 		if (ballY <= 160 || ballY >= (280)) {///2
 			hearts--;
-			//bar1X--;
 			ballY = 230;
-			//ballY--;
 		}
 
 	}
-	////
 	if (bar1X == -1185 && power == false) {
 		if (ballY <= 210 || ballY >= (330)) {  //3
 			hearts--;
-			//bar1X--;
 			ballY = 280;
-		//	ballY--;
 		}
 
 	}
 
 	if (bar1X == -1285 && power == true) {
-
 		power = false;
-
-		//bar1X--;
 	}
 }
-void  bariers22(double x, double h) { // 350 550 750 950 1150 1350 1550 1750 1950
+void  bariers22(double x, double h) { 
 
 	glColor3f(1 - powercolor, 0 + powercolor, 0);
 	drawtri(100 + x + bar1X, 125 + h);//t11    h=155
@@ -224,21 +195,13 @@ void  bariers22(double x, double h) { // 350 550 750 950 1150 1350 1550 1750 195
 	drawRect(500 + x + bar1X, 400 + h, 50, 600);//r32
 
 
-
-
 	if (100 + x + bar1X <= 115 && 100 + x + bar1X >= 50 && power == false) {
-		if (ballY <= 120 || ballY >= (240)) {    //1
+		if (ballY <= 120 || ballY >= (240)) {  
 			hearts--;
-			//bar1X--;
 			ballY = 180;
-			//ballY--;
-
 
 		}
-		//	//if (ballY <= 145 || ballY >= (265)) {    //1
-		//	//	hearts--;
-		//	//	bar1X--;
-		//	//}
+
 	}
 	if (120 + x + bar1X == 115) {
 		if (ballY >= 115 && ballY <= 180) {
@@ -313,24 +276,19 @@ void  bariers3(double x, double h) { // 350 550 750 950 1150 1350 1550 1750 1950
 			hearts--;
 			bar1X--;
 			ballY = 260;
-			//ballY--;
 
 		}
 	}
 	if (300 + x + bar1X <= 115 && 300 + x + bar1X >= 50) {///222
 		if (ballY <= 250 || ballY >= 370) {///2
 			hearts--;
-			//bar1X--;
 			ballY = 310;
-			//ballY--;
 		}
 	}
 	if (500 + x + bar1X <= 115 && 500 + x + bar1X >= 50) {  //333
 		if (ballY <= 300 || ballY >= 420) {  //3
 			hearts--;
-			//bar1X--;
 			ballY = 360;
-			//ballY--;
 		}
 	}
 	if (scoren == 2250 || hearts < 1) {
@@ -420,12 +378,10 @@ void Display() {
 		sprintf((char*)p0s, "Score: %d", scoren);
 		print(500, 500, (char*)p0s);
 		glColor3f(1, 0.7, 0.2);
-		//char* p0s[20];
 		sprintf((char*)p0s, "hearts: %d", hearts);
 		print(800, 500, (char*)p0s);
 
 		glPopMatrix();
-		//backend();
 		glFlush();
 		glutPostRedisplay();
 	}
@@ -519,8 +475,6 @@ int main(int argc, char** argr) {
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	gluOrtho2D(0.0, 900, 0.0, 600);
 	glutIdleFunc(anim);
-	//srand(time(NULL));
-	//rand1 = rand() % 3 + 1; // Random number = 1 to 3
 	glutMainLoop();
 	return 0;
 }
